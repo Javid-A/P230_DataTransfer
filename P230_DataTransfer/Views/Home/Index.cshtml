@@ -1,0 +1,60 @@
+﻿@using P230_DataTransfer.Models
+@using P230_DataTransfer.ViewModels
+@model HomeVM
+@{
+    //List<Series> series = ViewBag.Series;
+    //List<Series> series = ViewData["Series"] as List<Series>;
+    //if(series is null)
+    //{
+    //    series = new List<Series>();
+    //}
+}
+
+@*<h2>
+    Index page with ViewBag: @ViewBag.Series
+</h2>*@
+@*<h2>
+    Index page with ViewData: @ViewData["Count1"]
+</h2>
+
+<h2>
+    Index page with Tempdata: @TempData["Count2"]
+</h2>*@
+
+
+@*<ul>
+    @foreach(Series serie in ViewBag.Series){
+
+    <li>
+        @serie.Id, @serie.Name
+    </li>
+}
+</ul>*@
+
+@*<h2>
+    @TempData["TempData"]
+</h2>
+
+<h2>
+    @ViewBag.Data
+</h2>*@
+
+<ul>
+    @foreach (var item in Model.Categories)
+    {
+        <li>
+            @item.Name
+        </li>
+    }
+</ul>
+
+<ul>
+    @foreach (var item in Model.Series)
+    {
+
+        <li style="color:@(item.Imdb>=9 ? "green" : "white")">
+            <img height="150" width="150" src="@item.CoverPhoto" style="object-fit:contain"><br>
+            @item.Id  @item.Name <br> IMDB: @item.Imdb
+        </li>
+    }
+</ul>
